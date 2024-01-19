@@ -1,8 +1,8 @@
 from pybtex.database.input import bibtex
 
 def get_personal_data():
-    name = ["Michael", "Niemeyer"]
-    email = "micniemeyer1@gmail.com"
+    name = ["Puxun", "Tu"]
+    email = "puxuntu@sjtu.edu.cn"
     twitter = "Mi_Niemeyer"
     github = "m-niemeyer"
     linkedin = "michael-niemeyer"

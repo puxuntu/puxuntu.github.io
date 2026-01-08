@@ -17,15 +17,25 @@
             --tag-text: #5a8ea2;
             --year-bg: #f5f5f5;
         }
-        body { font-family: 'Quicksand', 'Noto Sans SC', sans-serif; background-color: var(--bg-color); color: var(--main-text); line-height: 1.6; }
-        .container { max-width: 900px; padding: 3rem 15px; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Quicksand', 'Noto Sans SC', sans-serif; background-color: var(--bg-color); color: var(--main-text); line-height: 1.6; position: relative; }
+        .container { max-width: 1200px; padding: 3rem 15px; }
+        
+        /* 侧边栏样式 */
+        .sidebar { position: sticky; top: 5rem; height: fit-content; padding-left: 1.5rem; border-left: 1.5px solid #eee; margin-top: 2rem; }
+        .sidebar a { display: block; color: #999; font-size: 0.85rem; font-weight: 700; padding: 0.5rem 0; text-decoration: none !important; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .sidebar a:hover { color: var(--accent-color); padding-left: 5px; }
+        .sidebar a.active { color: var(--accent-color); border-left: 3px solid var(--accent-color); margin-left: -1.6rem; padding-left: 1.5rem; }
+        @media (max-width: 1199px) { .sidebar-column { display: none; } }
+
+        /* 主要内容 */
+        section { scroll-margin-top: 6rem; margin-bottom: 3rem; }
         .profile-pic { width: 140px; border-radius: 50%; border: 4px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .display-4 { font-weight: 700; color: #222; font-size: 2.6rem; }
         .social-links a { margin-right: 18px; color: #888; font-weight: 600; transition: 0.3s; }
         .social-links a:hover { color: var(--accent-color); text-decoration: none; }
-        h4 { font-weight: 700; color: #333; margin-top: 4rem; margin-bottom: 2rem; border-left: 4px solid var(--accent-color); padding-left: 15px; }
+        h4 { font-weight: 700; color: #333; margin-top: 0; margin-bottom: 2rem; border-left: 4px solid var(--accent-color); padding-left: 15px; }
         
-        /* 对齐排版样式 */
         .pub-list-simple { list-style: none; padding-left: 0; }
         .pub-item-simple { display: flex; align-items: flex-start; margin-bottom: 1.5rem; }
         .tag-container { flex: 0 0 160px; margin-right: 20px; }
@@ -37,55 +47,29 @@
         .pub-title-simple { font-weight: 600; color: #222; font-size: 1.05rem; line-height: 1.3; }
         .authors-simple { color: #666; font-size: 0.9rem; margin-top: 2px; }
 
-        /* 列表样式 */
         .custom-list { padding-left: 0; list-style: none; }
         .custom-list li { position: relative; padding-left: 20px; margin-bottom: 1rem; border-bottom: 1px dashed #eee; padding-bottom: 10px; }
         .custom-list li::before { content: "•"; color: var(--accent-color); position: absolute; left: 0; font-weight: 800; }
         .venue-sub { font-style: normal; color: #5a8ea2; font-weight: 600; }
 
-        .badge-award-talk {
-            /* 使用柔和的珊瑚粉渐变，醒目且不突兀 */
-            background: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%);
-            color: #fa5252; /* 暖红色文字，增加可读性 */
-            font-size: 0.72rem;
-            font-weight: 700;
-            padding: 2px 10px;
-            border-radius: 12px; /* 精致的小圆角 */
-            margin-left: 8px;
-            border: 1px solid #ffc9c9;
-            vertical-align: middle;
-            display: inline-block;
-            box-shadow: 0 2px 4px rgba(250, 82, 82, 0.05); /* 极轻微的同色系投影 */
-            letter-spacing: 0.2px;
-        }
-
-        /* 奖杯图标微调 */
-        .badge-award-talk i {
-            margin-right: 4px;
-            font-size: 0.8rem;
-            color: #fa5252;
-        }
-
-        .visitor-stats {
-            max-width: 700px;
-            margin: 2rem auto;
-            padding: 10px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
+        .badge-award-talk { background: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%); color: #fa5252; font-size: 0.72rem; font-weight: 700; padding: 2px 10px; border-radius: 12px; margin-left: 8px; border: 1px solid #ffc9c9; vertical-align: middle; display: inline-block; box-shadow: 0 2px 4px rgba(250, 82, 82, 0.05); letter-spacing: 0.2px; }
+        .badge-award-talk i { margin-right: 4px; font-size: 0.8rem; color: #fa5252; }
+        
+        .visitor-stats { max-width: 700px; margin: 2rem auto; padding: 10px; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
     </style>
 </head>
-<body>
+<body data-spy="scroll" data-target="#sidebar-nav" data-offset="120">
     <div class="container">
-        <div class="row align-items-center mb-5">
-            <div class="col-md-9 order-2 order-md-1">
-                <h1 class="display-4"><strong>Puxun</strong> Tu (涂朴勋)</h1>
-                <div class="bio-text mt-4">
+        <div class="row">
+            <div class="col-xl-9 col-lg-12">
+                <section id="about" class="row align-items-center mb-5" style="margin-top: 0;">
+                    <div class="col-md-9 order-2 order-md-1">
+                        <h1 class="display-4"><strong>Puxun</strong> Tu (涂朴勋)</h1>
+                        <div class="bio-text mt-4">
         <p>
             I am currently a Postdoctoral researcher at the Institute of Biomedical Manufacturing and Life Quality Engineering, School of Mechanical Engineering, 
             Shanghai Jiao Tong University, China, where I earned my PhD in 2025 under the supervision of <a href="https://me.sjtu.edu.cn/en/FullTimeTeacher/chenxiaojun.html" target="_blank">Prof. Xiaojun Chen</a>. 
-            In 2023, I worked as a visiting Ph.D. student at the Pattern Recognition and Image Analysis (PRIA) Lab at the University of M&uumlnster in Germany, led by <a href="https://www.uni-muenster.de/PRIA/personen/jiang.shtml" target="_blank">Prof. Xiaoyi Jiang</a>. 
+            In 2023, I worked as a visiting PhD student at the Pattern Recognition and Image Analysis (PRIA) Lab at the University of M&uumlnster in Germany, led by <a href="https://www.uni-muenster.de/PRIA/personen/jiang.shtml" target="_blank">Prof. Xiaoyi Jiang</a>. 
             My research focuses on image guided surgery, surgical scene understanding, and augmented reality.
         </p>
 
@@ -95,15 +79,15 @@
             <a href="https://github.com/puxuntu" target="_blank"><i class="fab fa-github"></i> Github</a>
         </div>
     </div>
-            </div>
-            <div class="col-md-3 order-1 order-md-2 text-center">
-                <img src="assets/img/profile.png" class="profile-pic" alt="Puxun Tu">
-            </div>
-        </div>
+                    </div>
+                    <div class="col-md-3 order-1 order-md-2 text-center">
+                        <img src="assets/img/profile.png" class="profile-pic" alt="Puxun Tu">
+                    </div>
+                </section>
 
-        <section>
-            <h4>Selected Publications</h4>
-            <ul class="pub-list-simple">
+                <section id="publications">
+                    <h4>Selected Publications</h4>
+                    <ul class="pub-list-simple">
         <li class="pub-item-simple">
             <div class="tag-container">
                 <div class="tag-group">
@@ -429,88 +413,104 @@
             </div>
         </li>
         </ul>
-        </section>
+                </section>
 
-        <section>
-            <h4>Selected Talks</h4>
-            <ul class="custom-list">
-                <li>AR-Assisted Surgical Navigation for Soft and Microscopic Surgeries. <br><span class="venue-sub">Invited talk at MICS China by Prof. YuFei Chen, online.</span>, 2025</li>
-                <li>AR-Assisted Surgical Navigation for Soft and Microscopic Surgeries. <br><span class="venue-sub">Invited talk at iMVR Lab @ NUS by Prof. Yueming Jin, online.</span>, 2025</li>
-                <li>Development of an AR and AI-Powered Surgical Microscope for Ophthalmic Surgical Navigation. <br><span class="venue-sub">Oral presentation at CARS 2025, Berlin, Germany.</span>, 2025</li>
-                <li>AR-Assisted Surgical Navigation for Soft and Microscopic Surgeries. <br><span class="venue-sub">Invited talk at CSIG-S3DI by Prof. Tianqi Huang, Suzhou, China,</span>, 2025</li>
-                <li>AR-Based Surgical Navigation for Microscopic Cataract Surgery. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Paper Incentive Program Award (1 of 3)</span> <br><span class="venue-sub">Oral presentation at CCF-Digital Medicine Conference, Beijing, China.</span>, 2025</li>   
-                <li>Intraoperative Soft Tissue Deformation Perception-Guided Mixed Reality Surgical Navigation and Robotic System for Head and Neck Surgery. <br><span class="venue-sub">Invited talk at CMA-Digital Medicine Conference by Prof. Xiangdong Qi, Shanghai, China.</span>, 2025</li>
-                <li>Augmented Reality Surgical Navigation for Soft Tissue and Microsurgical Procedures. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Award Finalist (1 of 8)</span> <br><span class="venue-sub">Oral presentation at MICCAI MSB PhD Thesis Madness, Marrakech, Morocco.</span>, 2024</li>
-                <li>AI and AR in Medical Image Processing, Surgical Navigation, and Robotics: A Focus on Medical Shape Analysis. <br><span class="venue-sub">Invited talk at MICCAI MedShapeNet tutorial by Gijs Luijten, Marrakech, Morocco.</span>, 2024</li>
-                <li>Efficient Spatiotemporal Learning of Microscopic Video for Augmented Reality-Guided Phacoemulsification Cataract Surgery. <br><span class="venue-sub">Oral presentation at OMIA Workshop, Marrakech, Morocco.</span>, 2024</li>
-                <li>Augmented Reality Based Surgical Navigation for Soft and Microscopic Surgeries. <br><span class="venue-sub">Invited talk at HIT Webinar by Dr. Jiancheng Yang, Online.</span>, 2024</li>
-                <li>Augmented Reality Based Surgical Navigation for Soft and Microscopic Surgeries. <br><span class="venue-sub">Invited talk at WEISS by Prof. Matt Clarkson and Prof. Gary Zhang, University College London, UK.</span>, 2024</li>
-                <li>Phase-Specific Augmented Reality Navigation for Microscopic Cataract Surgery. <br><span class="venue-sub">Oral presentation at ACCAS, Daegu, Korea.</span>, 2024</li>
-                <li>Ultrasound Image and Microscopic Video Guided Augmented Reality Surgical Navigation System. <br><span class="venue-sub">Invited talk at PRIA Lab at the University of Münster by Prof. Xiaoyi Jiang, Germany,</span>, 2024</li>
-                <li>Phase-Specific Augmented Reality Navigation for Microscopic Cataract Surgery. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Second Prize</span> <br><span class="venue-sub">Oral presentation at CCF-Digital Medicine Conference, Shenyang, China. </span>, 2024</li>
-                <li>Phase-Specific Augmented Reality Guidance for Microscopic Cataract Surgery Using Spatiotemporal Fusion Network. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Excellent Paper First Prize (1 of 2)</span> <br><span class="venue-sub">Oral presentation at China Biomedical Engineering Conference, Shenzhen, China.</span>, 2024</li>
-                <li>Inter-frame Sclera Vessel Rotation Tracking for Toric Intraocular Lens Implantation Navigation. <br><span class="venue-sub">Poster presentation at MICCAI, Vancouver, Canada.</span>, 2023</li>
-                <li>A multi-view interactive virtual-physical registration method for mixed reality based surgical navigation in pelvic and acetabular fracture fixation. <br><span class="venue-sub">Oral presentation at CARS, Munich, Germany.</span>, 2023</li>
-                <li>Development of an Ultrasound Image and Mixed reality Guided Surgical Navigation System with Continuous Soft Tissue Deformation Tracking. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Young Best Paper Presentation (sole recipient)</span> <br><span class="venue-sub">Oral presentation at China Biomedical Engineering Conference, Shenzhen, China.</span>, 2022</li>
-                <li>MRSNS: mixed reality guided surgical navigation system using an external electromagnetic tracker and a head-mounted display. <br><span class="venue-sub">Oral presentation at CMBBE, Bonn, Germany.</span>, 2021</li>
-                <li>AR (Augmented Reality)-based Navigation for Distal Interlocking of Intramedullary Nails Utilizing Microsoft HoloLens 2. <br><span class="venue-sub">Oral presentation at ACCAS, online.</span>, 2020</li>
-                <li>Accurate and robust non-rigid shape correction of deformed hepatic vascular trees using sparse intraoperative ultrasound images. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Second Prize</span> <br><span class="venue-sub">Oral presentation at SJTU Graduate Academic Forum, Shanghai, China.</span>, 2022</li>
-                <li>Ultrasound image guided and mixed reality based surgical system with real-time soft tissue deformation computing for robotic cervical pedicle screw placement. <br><span class="venue-sub">Oral presentation at SJTU Graduate Academic Forum, Online.</span>, 2021</li>
-            </ul>
-        </section>
+                <section id="talks">
+                    <h4>Selected Talks</h4>
+                    <ul class="custom-list">
+                        <li>AR-Assisted Surgical Navigation for Soft and Microscopic Surgeries. <br><span class="venue-sub">Invited talk at MICS China by Prof. YuFei Chen, online.</span>, 2025</li>
+                        <li>AR-Assisted Surgical Navigation for Soft and Microscopic Surgeries. <br><span class="venue-sub">Invited talk at iMVR Lab @ NUS by Prof. Yueming Jin, online.</span>, 2025</li>
+                        <li>Development of an AR and AI-Powered Surgical Microscope for Ophthalmic Surgical Navigation. <br><span class="venue-sub">Oral presentation at CARS 2025, Berlin, Germany.</span>, 2025</li>
+                        <li>AR-Assisted Surgical Navigation for Soft and Microscopic Surgeries. <br><span class="venue-sub">Invited talk at CSIG-S3DI by Prof. Tianqi Huang, Suzhou, China,</span>, 2025</li>
+                        <li>AR-Based Surgical Navigation for Microscopic Cataract Surgery. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Paper Incentive Program Award (1 of 3)</span> <br><span class="venue-sub">Oral presentation at CCF-Digital Medicine Conference, Beijing, China.</span>, 2025</li>   
+                        <li>Intraoperative Soft Tissue Deformation Perception-Guided Mixed Reality Surgical Navigation and Robotic System for Head and Neck Surgery. <br><span class="venue-sub">Invited talk at CMA-Digital Medicine Conference by Prof. Xiangdong Qi, Shanghai, China.</span>, 2025</li>
+                        <li>Augmented Reality Surgical Navigation for Soft Tissue and Microsurgical Procedures. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Award Finalist (1 of 8)</span> <br><span class="venue-sub">Oral presentation at MICCAI MSB PhD Thesis Madness, Marrakech, Morocco.</span>, 2024</li>
+                        <li>AI and AR in Medical Image Processing, Surgical Navigation, and Robotics: A Focus on Medical Shape Analysis. <br><span class="venue-sub">Invited talk at MICCAI MedShapeNet tutorial by Gijs Luijten, Marrakech, Morocco.</span>, 2024</li>
+                        <li>Efficient Spatiotemporal Learning of Microscopic Video for Augmented Reality-Guided Phacoemulsification Cataract Surgery. <br><span class="venue-sub">Oral presentation at OMIA Workshop, Marrakech, Morocco.</span>, 2024</li>
+                        <li>Augmented Reality Based Surgical Navigation for Soft and Microscopic Surgeries. <br><span class="venue-sub">Invited talk at HIT Webinar by Dr. Jiancheng Yang, Online.</span>, 2024</li>
+                        <li>Augmented Reality Based Surgical Navigation for Soft and Microscopic Surgeries. <br><span class="venue-sub">Invited talk at WEISS by Prof. Matt Clarkson and Prof. Gary Zhang, University College London, UK.</span>, 2024</li>
+                        <li>Phase-Specific Augmented Reality Navigation for Microscopic Cataract Surgery. <br><span class="venue-sub">Oral presentation at ACCAS, Daegu, Korea.</span>, 2024</li>
+                        <li>Ultrasound Image and Microscopic Video Guided Augmented Reality Surgical Navigation System. <br><span class="venue-sub">Invited talk at PRIA Lab at the University of Münster by Prof. Xiaoyi Jiang, Germany,</span>, 2024</li>
+                        <li>Phase-Specific Augmented Reality Navigation for Microscopic Cataract Surgery. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Second Prize</span> <br><span class="venue-sub">Oral presentation at CCF-Digital Medicine Conference, Shenyang, China. </span>, 2024</li>
+                        <li>Phase-Specific Augmented Reality Guidance for Microscopic Cataract Surgery Using Spatiotemporal Fusion Network. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Excellent Paper First Prize (1 of 2)</span> <br><span class="venue-sub">Oral presentation at China Biomedical Engineering Conference, Shenzhen, China.</span>, 2024</li>
+                        <li>Inter-frame Sclera Vessel Rotation Tracking for Toric Intraocular Lens Implantation Navigation. <br><span class="venue-sub">Poster presentation at MICCAI, Vancouver, Canada.</span>, 2023</li>
+                        <li>A multi-view interactive virtual-physical registration method for mixed reality based surgical navigation in pelvic and acetabular fracture fixation. <br><span class="venue-sub">Oral presentation at CARS, Munich, Germany.</span>, 2023</li>
+                        <li>Development of an Ultrasound Image and Mixed reality Guided Surgical Navigation System with Continuous Soft Tissue Deformation Tracking. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Young Best Paper Presentation (sole recipient)</span> <br><span class="venue-sub">Oral presentation at China Biomedical Engineering Conference, Shenzhen, China.</span>, 2022</li>
+                        <li>MRSNS: mixed reality guided surgical navigation system using an external electromagnetic tracker and a head-mounted display. <br><span class="venue-sub">Oral presentation at CMBBE, Bonn, Germany.</span>, 2021</li>
+                        <li>AR (Augmented Reality)-based Navigation for Distal Interlocking of Intramedullary Nails Utilizing Microsoft HoloLens 2. <br><span class="venue-sub">Oral presentation at ACCAS, online.</span>, 2020</li>
+                        <li>Accurate and robust non-rigid shape correction of deformed hepatic vascular trees using sparse intraoperative ultrasound images. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Second Prize</span> <br><span class="venue-sub">Oral presentation at SJTU Graduate Academic Forum, Shanghai, China.</span>, 2022</li>
+                        <li>Ultrasound image guided and mixed reality based surgical system with real-time soft tissue deformation computing for robotic cervical pedicle screw placement. <br><span class="venue-sub">Oral presentation at SJTU Graduate Academic Forum, Online.</span>, 2021</li>
+                    </ul>
+                </section>
 
-        <section>
-            <h4>Funding</h4>
-            <ul class="custom-list">
-                <li><strong>National Natural Science Foundation of China PhD Student Project (one of 400 nationwide)</strong>, 823B2045, PI. </li>
-                <li><strong>Chinese Association for Science and Technology (CAST) Young Talent Support Program PhD Project</strong>, PI. </li>
-                <li><strong>China Postdoctoral Science Foundation</strong>, 2025M772924, PI. </li>
-                <li><strong>National Natural Science Foundation of China (NSFC) Key Project</strong>, 82330063, Key Investigator. </li>
-                <li><strong>National Key R&D Program of China</strong>, 2022YFE0197900, Key Investigator. </li>
-                <li><strong>NSFC Sino-German International Cooperation Project</strong>, M-0019, Key Investigator. </li>
+                <section id="funding">
+                    <h4>Funding</h4>
+                    <ul class="custom-list">
+                        <li><strong>National Natural Science Foundation of China PhD Student Project (one of 400 nationwide)</strong>, 823B2045, PI. </li>
+                        <li><strong>Chinese Association for Science and Technology (CAST) Young Talent Support Program PhD Project</strong>, PI. </li>
+                        <li><strong>China Postdoctoral Science Foundation</strong>, 2025M772924, PI. </li>
+                        <li><strong>National Natural Science Foundation of China (NSFC) Key Project</strong>, 82330063, Key Investigator. </li>
+                        <li><strong>National Key R&D Program of China</strong>, 2022YFE0197900, Key Investigator. </li>
+                        <li><strong>NSFC Sino-German International Cooperation Project</strong>, M-0019, Key Investigator. </li>
+                    </ul>
+                </section>
 
-            </ul>
-        </section>
+                <section id="services">
+                    <h4>Academic Services & Activities</h4>
+                    <ul class="custom-list">
+                        <li><strong>Program committee member</strong> of MICCAI 2023 Seg. A. Challenge.</li>
+                        <li><strong>Program committee member</strong> of International Conference on Mechanical Automation and Engineering Materials 2024.</li>
+                        <li><strong>Regular reviewer</strong> of IEEE JBHI, IEEE T-MRB, IEEE CGA, Physical and Engineering Sciences in Medicine, Medical Engineering and Physics, MICCAI, etc.</li>
+                        <li><strong>Committee Member</strong> of CSIG-S3DI.</li>
+                    </ul>
+                </section>
 
-        <section>
-            <h4>Academic Services & Activities</h4>
-            <ul class="custom-list">
-                <li><strong>Program committee member</strong> of MICCAI 2023 Seg. A. Challenge.</li>
-                <li><strong>Program committee member</strong> of International Conference on Mechanical Automation and Engineering Materials 2024.</li>
-                <li><strong>Regular reviewer</strong> of IEEE JBHI, IEEE T-MRB, IEEE CGA, Physical and Engineering Sciences in Medicine, Medical Engineering and Physics, MICCAI, etc.</li>
-                <li><strong>Committee Member</strong> of CSIG-S3DI.</li>
-            </ul>
-        </section>
+                <section id="awards">
+                    <h4>Awards & Achievements</h4>
+                    <ul class="custom-list">
+                        <li>2024 <strong>Academic Raising Star of Shanghai Jiao Tong University</strong> (10 recipients annually).</li>
+                        <li>2024 <strong>National Scholarship for Doctoral Students</strong>.</li>
+                        <li>2025 <strong>Outstanding Graduate of Shanghai Municipality</strong>.</li>
+                        <li>2021 <strong>Top Cited Article</strong> in Expert Review of Medical Devices (2nd highest citations).</li>
+                        <li>2025 <strong>Gold Award (Shanghai) and National Excellence Award</strong>, National Postdoctoral Innovation Competition.</li>
+                        <li>2021 <strong>Grand Prize</strong>, The "Challenge Cup" Competition of Shanghai.</li>
+                        <li>2024 <strong>First Prize</strong>, 9th National Biomedical Engineering Innovation Design Competition.</li>
+                        <li>2025 <strong>Award Winner</strong>, Retinal Segmentation Challenge (ISICDM Conference).</li>
+                        <li>2023 <strong>SJTU Overseas Study Grants for Elite PhD Students</strong>.</li>
+                        <li>2023 <strong>First Prize</strong>, Changjiang Siyuan Science and Technology Innovation Scholarship.</li>
+                        <li>2021 <strong>Shao Xiu Medical+X Innovation Scholarship</strong>.</li>
+                        <li>2021 <strong>Excellence Award</strong>, TOYOTA Scholarship.</li>
+                        <li>2022 <strong>First Prize</strong>, LEGEND Medical Scholarship.</li>
+                        <li>2017 <strong>First Prize (Top 1%)</strong>, Contemporary Undergraduate Mathematical Contest in Modeling.</li>
+                    </ul>
+                </section>
 
-        <section>
-            <h4>Awards & Achievements</h4>
-            <ul class="custom-list">
-                <li>2024 <strong>Academic Raising Star of Shanghai Jiao Tong University</strong> (10 recipients annually).</li>
-                <li>2024 <strong>National Scholarship for Doctoral Students</strong>.</li>
-                <li>2025 <strong>Outstanding Graduate of Shanghai Municipality</strong>.</li>
-                <li>2021 <strong>Top Cited Article</strong> in Expert Review of Medical Devices (2nd highest citations).</li>
-                <li>2025 <strong>Gold Award (Shanghai) and National Excellence Award</strong>, Postdoctoral Innovation Competition.</li>
-                <li>2021 <strong>Grand Prize</strong>, The "Challenge Cup" Competition of Shanghai.</li>
-                <li>2024 <strong>First Prize</strong>, 9th National Biomedical Engineering Innovation Design Competition.</li>
-                <li>2025 <strong>Award Winner</strong>, Retinal Segmentation Challenge (ISICDM Conference).</li>
-                <li>2023 <strong>SJTU Overseas Study Grants for Elite PhD Students</strong>.</li>
-                <li>2023 <strong>First Prize</strong>, Changjiang Siyuan Science and Technology Innovation Scholarship.</li>
-                <li>2021 <strong>Shao Xiu Medical+X Innovation Scholarship</strong>.</li>
-                <li>2021 <strong>Excellence Award</strong>, TOYOTA Scholarship.</li>
-                <li>2022 <strong>First Prize</strong>, LEGEND Medical Scholarship.</li>
-                <li>2017 <strong>First Prize (Top 1%)</strong>, Contemporary Undergraduate Mathematical Contest in Modeling.</li>
-            </ul>
-        </section>
+                <section id="visitors" class="text-center">
+                    <div class="visitor-stats">
+                        <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=s-Iw4ZFpHnWAY4ThGiKzyHBpzcIaFyQpd--7_cKgzzY"></script>
+                    </div>
+                </section>
 
-        <section class="text-center">
-            
-            <div class="visitor-stats">
-                <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=s-Iw4ZFpHnWAY4ThGiKzyHBpzcIaFyQpd--7_cKgzzY"></script>
+                <footer class="mt-5 py-5 border-top text-center text-muted small">Last update: Jan. 2026.</footer>
             </div>
-        </section>
 
-        <footer class="mt-5 py-5 border-top text-center text-muted small">Last update: Jan. 2026.</footer>
+            <div class="col-xl-3 sidebar-column">
+                <nav id="sidebar-nav" class="sidebar">
+                    <a class="nav-link" href="#about">About</a>
+                    <a class="nav-link" href="#publications">Publications</a>
+                    <a class="nav-link" href="#talks">Talks</a>
+                    <a class="nav-link" href="#funding">Funding</a>
+                    <a class="nav-link" href="#services">Services</a>
+                    <a class="nav-link" href="#awards">Awards</a>
+                    <a class="nav-link" href="#visitors">Visitors</a>
+                </nav>
+            </div>
+        </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
     

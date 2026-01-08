@@ -42,6 +42,29 @@
         .custom-list li { position: relative; padding-left: 20px; margin-bottom: 1rem; border-bottom: 1px dashed #eee; padding-bottom: 10px; }
         .custom-list li::before { content: "•"; color: var(--accent-color); position: absolute; left: 0; font-weight: 800; }
         .venue-sub { font-style: normal; color: #5a8ea2; font-weight: 600; }
+
+        .badge-award-talk {
+            /* 使用柔和的珊瑚粉渐变，醒目且不突兀 */
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%);
+            color: #fa5252; /* 暖红色文字，增加可读性 */
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 12px; /* 精致的小圆角 */
+            margin-left: 8px;
+            border: 1px solid #ffc9c9;
+            vertical-align: middle;
+            display: inline-block;
+            box-shadow: 0 2px 4px rgba(250, 82, 82, 0.05); /* 极轻微的同色系投影 */
+            letter-spacing: 0.2px;
+        }
+
+        /* 奖杯图标微调 */
+        .badge-award-talk i {
+            margin-right: 4px;
+            font-size: 0.8rem;
+            color: #fa5252;
+        }
     </style>
 </head>
 <body>
@@ -81,7 +104,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">An Ophthalmic Video Foundation Model for Surgical Recognition and Navigation with Wet-Lab Porcine Eye Validation</div>
-                <div class="authors-simple">Puxun Tu, Ce Zheng, Xiaoling Xie, Jiao Lv, Meng Xie, Jinming Guo, Shengjie Yin, Kunliang Qiu, Yue Wei, Chongyang Wang, Jingfeng Cai, Wei Mi, Yafu Wang, Xiao Zhang, Danba Jiachu, Kun Peng, Wanqi Zhang, Fengfeng Tong, Huiying Chu, Peiquan Zhao, Mingzhi Zhang, Xiaojun Chen</div>
+                <div class="authors-simple"><strong style="color: var(--accent-color);">Puxun Tu</strong>, Ce Zheng, Xiaoling Xie, Jiao Lv, Meng Xie, Jinming Guo, Shengjie Yin, Kunliang Qiu, Yue Wei, Chongyang Wang, Jingfeng Cai, Wei Mi, Yafu Wang, Xiao Zhang, Danba Jiachu, Kun Peng, Wanqi Zhang, Fengfeng Tong, Huiying Chu, Peiquan Zhao, Mingzhi Zhang, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -94,7 +117,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">Robust Self-Supervised Monocular Depth Estimation for Endoscopic Soft Tissue Deformation Scenes with Biomechanical Constraints</div>
-                <div class="authors-simple">Enpeng Wang, Jiangchang Xu, Yueang Liu, Puxun Tu, Junfeng Wang, Xiaoyi Jiang,Xiaojun Chen</div>
+                <div class="authors-simple">Enpeng Wang, Jiangchang Xu, Yueang Liu, <strong style="color: var(--accent-color);">Puxun Tu</strong>, Junfeng Wang, Xiaoyi Jiang,Xiaojun Chen</div>
             </div>
         </li>
         
@@ -107,7 +130,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">Phase-specific augmented reality guidance for microscopic cataract surgery using spatiotemporal fusion network</div>
-                <div class="authors-simple">Puxun Tu, Hongfei Ye, Haochen Shi, Jeff Young, Meng Xie, Peiquan Zhao, Ce Zheng, Xiaoyi Jiang, Xiaojun Chen</div>
+                <div class="authors-simple"><strong style="color: var(--accent-color);">Puxun Tu</strong>, Hongfei Ye, Haochen Shi, Jeff Young, Meng Xie, Peiquan Zhao, Ce Zheng, Xiaoyi Jiang, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -120,7 +143,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">A novel image-guided robotic system with motion compensation for intraoperative radiation-free localization of pulmonary nodules</div>
-                <div class="authors-simple">Dongyuan Li, Yixin Shan, Haochen Shi, Puxun Tu, Shenghao Huang, Weiyan Sun, Deping Zhao, Chang Chen, Xiaojun Chen</div>
+                <div class="authors-simple">Dongyuan Li, Yixin Shan, Haochen Shi, <strong style="color: var(--accent-color);">Puxun Tu</strong>, Shenghao Huang, Weiyan Sun, Deping Zhao, Chang Chen, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -133,7 +156,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">Automated planning of mandible reconstruction with fibula free flap based on shape completion and morphometric descriptors</div>
-                <div class="authors-simple">Yan Guo, Chenyao Li, Rong Yang, Puxun Tu, Bolun Zeng, Jiannan Liu, Tong Ji, Chenping Zhang, Xiaojun Chen</div>
+                <div class="authors-simple">Yan Guo, Chenyao Li, Rong Yang, <strong style="color: var(--accent-color);">Puxun Tu</strong>, Bolun Zeng, Jiannan Liu, Tong Ji, Chenping Zhang, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -146,7 +169,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">Development and Evaluation of a Novel Mixed Reality-Based Surgical Navigation System for Distal Locking of Intramedullary Nails</div>
-                <div class="authors-simple">Fei Lyu, Puxun Tu, Xingguang Tao, Huixiang Wang</div>
+                <div class="authors-simple">Fei Lyu, <strong style="color: var(--accent-color);">Puxun Tu</strong>, Xingguang Tao, Huixiang Wang</div>
             </div>
         </li>
         
@@ -159,7 +182,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">From Coarse to Fine: Non-Rigid Sparse-Dense Registration for Deformation-Aware Liver Surgical Navigation</div>
-                <div class="authors-simple">Puxun Tu, Pingping Hu, Junfeng Wang, Xiaojun Chen</div>
+                <div class="authors-simple"><strong style="color: var(--accent-color);">Puxun Tu</strong>, Pingping Hu, Junfeng Wang, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -172,7 +195,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">Video-based soft tissue deformation tracking for laparoscopic augmented reality-based navigation in kidney surgery</div>
-                <div class="authors-simple">Enpeng Wang, Yueang Liu, Puxun Tu, Zeike A Taylor, Xiaojun Chen</div>
+                <div class="authors-simple">Enpeng Wang, Yueang Liu, <strong style="color: var(--accent-color);">Puxun Tu</strong>, Zeike A Taylor, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -185,7 +208,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">Inter-frame Sclera Vessel Rotation Tracking for Toric Intraocular Lens Implantation Navigation</div>
-                <div class="authors-simple">Puxun Tu, Meng Xie, Jiao Lv, Peiquan Zhao, Ce Zheng, Xiaojun Chen</div>
+                <div class="authors-simple"><strong style="color: var(--accent-color);">Puxun Tu</strong>, Meng Xie, Jiao Lv, Peiquan Zhao, Ce Zheng, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -198,7 +221,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">Development of a virtual reality-based zygomatic implant surgery training system with global collision detection and optimized finite element method model</div>
-                <div class="authors-simple">Ao Leng, Bolun Zeng, Yizhou Chen, Puxun Tu, Baoxin Tao, Xiaojun Chen</div>
+                <div class="authors-simple">Ao Leng, Bolun Zeng, Yizhou Chen, <strong style="color: var(--accent-color);">Puxun Tu</strong>, Baoxin Tao, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -211,7 +234,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">A robotic system for transthoracic puncture of pulmonary nodules based on gated respiratory compensation</div>
-                <div class="authors-simple">Dongyuan Li, Yuxuan Mao, Puxun Tu, Haochen Shi, Weiyan Sun, Deping Zhao, Chang Chen, Xiaojun Chen</div>
+                <div class="authors-simple">Dongyuan Li, Yuxuan Mao, <strong style="color: var(--accent-color);">Puxun Tu</strong>, Haochen Shi, Weiyan Sun, Deping Zhao, Chang Chen, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -224,7 +247,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">A multi-view interactive virtual-physical registration method for mixed reality based surgical navigation in pelvic and acetabular fracture fixation</div>
-                <div class="authors-simple">Puxun Tu, Huixiang Wang, Leo Joskowicz, Xiaojun Chen</div>
+                <div class="authors-simple"><strong style="color: var(--accent-color);">Puxun Tu</strong>, Huixiang Wang, Leo Joskowicz, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -237,7 +260,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">Efficient Spatiotemporal Learning of Microscopic Video for Augmented Reality-Guided Phacoemulsification Cataract Surgery</div>
-                <div class="authors-simple">Puxun Tu, Hongfei Ye, Jeff Young, Meng Xie, Ce Zheng, Xiaojun Chen</div>
+                <div class="authors-simple"><strong style="color: var(--accent-color);">Puxun Tu</strong>, Hongfei Ye, Jeff Young, Meng Xie, Ce Zheng, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -250,7 +273,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">Two-Stage Structure-focused Contrastive Learning for Automatic Identification and Localization of Complex Pelvic Fractures</div>
-                <div class="authors-simple">Bolun Zeng, Huixiang Wang, Jiangchang Xu, Puxun Tu, Leo Joskowicz, Xiaojun Chen</div>
+                <div class="authors-simple">Bolun Zeng, Huixiang Wang, Jiangchang Xu, <strong style="color: var(--accent-color);">Puxun Tu</strong>, Leo Joskowicz, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -263,7 +286,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">Automatic 3D Teeth Reconstruction from Five Intra-oral Photos Using Parametric Teeth Model</div>
-                <div class="authors-simple">Yizhou Chen, Shuojie Gao, Puxun Tu, Xiaojun Chen</div>
+                <div class="authors-simple">Yizhou Chen, Shuojie Gao, <strong style="color: var(--accent-color);">Puxun Tu</strong>, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -276,7 +299,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">A novel mixed reality-guided dental implant placement navigation system based on virtual-actual registration</div>
-                <div class="authors-simple">Xingqi Fan, Baoxin Tao, Puxun Tu, Yihan Shen, Yiqun Wu, Xiaojun Chen</div>
+                <div class="authors-simple">Xingqi Fan, Baoxin Tao, <strong style="color: var(--accent-color);">Puxun Tu</strong>, Yihan Shen, Yiqun Wu, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -289,7 +312,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">AR-Based Surgical Navigation System Based on Dual Plane Calibration and 2D/3D Registration</div>
-                <div class="authors-simple">Li Yin, Hang Fu, Demin Yang, Xingqi Fan, Puxun Tu, Xiaojun Chen</div>
+                <div class="authors-simple">Li Yin, Hang Fu, Demin Yang, Xingqi Fan, <strong style="color: var(--accent-color);">Puxun Tu</strong>, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -302,7 +325,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">Ultrasound image guided and mixed reality-based surgical system with real-time soft tissue deformation computing for robotic cervical pedicle screw placement</div>
-                <div class="authors-simple">Puxun Tu, Chunxia Qin, Yan Guo, Dongyuan Li, Abel J Lungu, Huixiang Wang, Xiaojun Chen</div>
+                <div class="authors-simple"><strong style="color: var(--accent-color);">Puxun Tu</strong>, Chunxia Qin, Yan Guo, Dongyuan Li, Abel J Lungu, Huixiang Wang, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -315,7 +338,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">A novel registration-based algorithm for prostate segmentation via the combination of SSM and CNN</div>
-                <div class="authors-simple">Chunxia Qin, Puxun Tu, Xiaojun Chen, Jocelyne Troccaz</div>
+                <div class="authors-simple">Chunxia Qin, <strong style="color: var(--accent-color);">Puxun Tu</strong>, Xiaojun Chen, Jocelyne Troccaz</div>
             </div>
         </li>
         
@@ -328,7 +351,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">A review of advances in image-guided orthopedic surgery</div>
-                <div class="authors-simple">Xingqi Fan, Qiyang Zhu, Puxun Tu, Leo Joskowicz, Xiaojun Chen</div>
+                <div class="authors-simple">Xingqi Fan, Qiyang Zhu, <strong style="color: var(--accent-color);">Puxun Tu</strong>, Leo Joskowicz, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -341,7 +364,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">Design and implementation of a surgical planning system for robotic assisted mandible reconstruction with fibula free flap</div>
-                <div class="authors-simple">Yan Guo, Wangjie Xu, Puxun Tu, Jing Han, Chenping Zhang, Jiannan Liu, Xiaojun Chen</div>
+                <div class="authors-simple">Yan Guo, Wangjie Xu, <strong style="color: var(--accent-color);">Puxun Tu</strong>, Jing Han, Chenping Zhang, Jiannan Liu, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -354,7 +377,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">Augmented Reality Based Navigation for Distal Interlocking of Intramedullary Nails Utilizing Microsoft HoloLens 2</div>
-                <div class="authors-simple">Puxun Tu, Yao Gao, Abel J Lungu, Dongyuan Li, Huixiang Wang, Xiaojun Chen</div>
+                <div class="authors-simple"><strong style="color: var(--accent-color);">Puxun Tu</strong>, Yao Gao, Abel J Lungu, Dongyuan Li, Huixiang Wang, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -367,7 +390,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">A novel dynamic electromagnetic tracking navigation system for distal locking of intramedullary nails</div>
-                <div class="authors-simple">Yao Gao, Huixiang Wang, Puxun Tu, Junlei Hu, Qiugen Wang, Xiaojun Chen</div>
+                <div class="authors-simple">Yao Gao, Huixiang Wang, <strong style="color: var(--accent-color);">Puxun Tu</strong>, Junlei Hu, Qiugen Wang, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -380,7 +403,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">A review on the applications of virtual reality, augmented reality and mixed reality in surgical simulation</div>
-                <div class="authors-simple">Abel J Lungu, Wout Swinkels, Luc Claesen, Puxun Tu, Jan Egger, Xiaojun Chen</div>
+                <div class="authors-simple">Abel J Lungu, Wout Swinkels, Luc Claesen, <strong style="color: var(--accent-color);">Puxun Tu</strong>, Jan Egger, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -393,7 +416,7 @@
             </div>
             <div class="pub-content">
                 <div class="pub-title-simple">Development and Application of Digital Maxillofacial Surgery System Based on Mixed Reality Technology</div>
-                <div class="authors-simple">Rong Yang, Chenyao Li, Puxun Tu, Abdelrehem Ahmed, Tong Ji*, Xiaojun Chen</div>
+                <div class="authors-simple">Rong Yang, Chenyao Li, <strong style="color: var(--accent-color);">Puxun Tu</strong>, Abdelrehem Ahmed, Tong Ji*, Xiaojun Chen</div>
             </div>
         </li>
         </ul>
@@ -406,24 +429,24 @@
                 <li>AR-Assisted Surgical Navigation for Soft and Microscopic Surgeries. <br><span class="venue-sub">Invited talk at iMVR Lab @ NUS by Prof. Yueming Jin, online.</span>, 2025</li>
                 <li>Development of an AR and AI-Powered Surgical Microscope for Ophthalmic Surgical Navigation. <br><span class="venue-sub">Oral presentation at CARS 2025, Berlin, Germany.</span>, 2025</li>
                 <li>AR-Assisted Surgical Navigation for Soft and Microscopic Surgeries. <br><span class="venue-sub">Invited talk at CSIG-S3DI by Prof. Tianqi Huang, Suzhou, China,</span>, 2025</li>
-                <li>Augmented Reality-Based Surgical Navigation for Microscopic Cataract Surgery. <br><span class="venue-sub">Oral presentation at CCF-Digital Medicine Conference, Beijing, China.</span>, 2025</li>   
+                <li>AR-Based Surgical Navigation for Microscopic Cataract Surgery. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Paper Incentive Program Award (1 of 3)</span> <br><span class="venue-sub">Oral presentation at CCF-Digital Medicine Conference, Beijing, China.</span>, 2025</li>   
                 <li>Intraoperative Soft Tissue Deformation Perception-Guided Mixed Reality Surgical Navigation and Robotic System for Head and Neck Surgery. <br><span class="venue-sub">Invited talk at CMA-Digital Medicine Conference by Prof. Xiangdong Qi, Shanghai, China.</span>, 2025</li>
-                <li>Augmented Reality Surgical Navigation for Soft Tissue and Microsurgical Procedures. <br><span class="venue-sub">Oral presentation at MICCAI MSB PhD Thesis Madness, Marrakech, Morocco.</span>, 2024</li>
+                <li>Augmented Reality Surgical Navigation for Soft Tissue and Microsurgical Procedures. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Award Finalist (1 of 8)</span> <br><span class="venue-sub">Oral presentation at MICCAI MSB PhD Thesis Madness, Marrakech, Morocco.</span>, 2024</li>
                 <li>AI and AR in Medical Image Processing, Surgical Navigation, and Robotics: A Focus on Medical Shape Analysis. <br><span class="venue-sub">Invited talk at MICCAI MedShapeNet tutorial by Gijs Luijten, Marrakech, Morocco.</span>, 2024</li>
                 <li>Efficient Spatiotemporal Learning of Microscopic Video for Augmented Reality-Guided Phacoemulsification Cataract Surgery. <br><span class="venue-sub">Oral presentation at OMIA Workshop, Marrakech, Morocco.</span>, 2024</li>
                 <li>Augmented Reality Based Surgical Navigation for Soft and Microscopic Surgeries. <br><span class="venue-sub">Invited talk at HIT Webinar by Dr. Jiancheng Yang, Online.</span>, 2024</li>
                 <li>Augmented Reality Based Surgical Navigation for Soft and Microscopic Surgeries. <br><span class="venue-sub">Invited talk at WEISS by Prof. Matt Clarkson and Prof. Gary Zhang, University College London, UK.</span>, 2024</li>
                 <li>Phase-Specific Augmented Reality Navigation for Microscopic Cataract Surgery. <br><span class="venue-sub">Oral presentation at ACCAS, Daegu, Korea.</span>, 2024</li>
                 <li>Ultrasound Image and Microscopic Video Guided Augmented Reality Surgical Navigation System. <br><span class="venue-sub">Invited talk at PRIA Lab at the University of Münster by Prof. Xiaoyi Jiang, Germany,</span>, 2024</li>
-                <li>Phase-Specific Augmented Reality Navigation for Microscopic Cataract Surgery. <br><span class="venue-sub">Oral presentation at CCF-Digital Medicine Conference, Shenyang, China. </span>, 2024</li>
-                <li>Phase-Specific Augmented Reality Guidance for Microscopic Cataract Surgery Using Spatiotemporal Fusion Network. <br><span class="venue-sub">Oral presentation at China Biomedical Engineering Conference, Shenzhen, China.</span>, 2024</li>
+                <li>Phase-Specific Augmented Reality Navigation for Microscopic Cataract Surgery. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Second Prize</span> <br><span class="venue-sub">Oral presentation at CCF-Digital Medicine Conference, Shenyang, China. </span>, 2024</li>
+                <li>Phase-Specific Augmented Reality Guidance for Microscopic Cataract Surgery Using Spatiotemporal Fusion Network. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Excellent Paper First Prize (1 of 2)</span> <br><span class="venue-sub">Oral presentation at China Biomedical Engineering Conference, Shenzhen, China.</span>, 2024</li>
                 <li>Inter-frame Sclera Vessel Rotation Tracking for Toric Intraocular Lens Implantation Navigation. <br><span class="venue-sub">Poster presentation at MICCAI, Vancouver, Canada.</span>, 2023</li>
                 <li>A multi-view interactive virtual-physical registration method for mixed reality based surgical navigation in pelvic and acetabular fracture fixation. <br><span class="venue-sub">Oral presentation at CARS, Munich, Germany.</span>, 2023</li>
-                <li>Development of an Ultrasound Image and Mixed reality Guided Surgical Navigation System with Continuous Soft Tissue Deformation Tracking. <br><span class="venue-sub">Oral presentation at China Biomedical Engineering Conference, Shenzhen, China.</span>, 2022</li>
+                <li>Development of an Ultrasound Image and Mixed reality Guided Surgical Navigation System with Continuous Soft Tissue Deformation Tracking. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Young Best Paper Presentation (sole recipient)</span> <br><span class="venue-sub">Oral presentation at China Biomedical Engineering Conference, Shenzhen, China.</span>, 2022</li>
                 <li>MRSNS: mixed reality guided surgical navigation system using an external electromagnetic tracker and a head-mounted display. <br><span class="venue-sub">Oral presentation at CMBBE, Bonn, Germany.</span>, 2021</li>
                 <li>AR (Augmented Reality)-based Navigation for Distal Interlocking of Intramedullary Nails Utilizing Microsoft HoloLens 2. <br><span class="venue-sub">Oral presentation at ACCAS, online.</span>, 2020</li>
+                <li>Accurate and robust non-rigid shape correction of deformed hepatic vascular trees using sparse intraoperative ultrasound images. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Second Prize</span> <br><span class="venue-sub">Oral presentation at SJTU Graduate Academic Forum, Shanghai, China.</span>, 2022</li>
                 <li>Ultrasound image guided and mixed reality based surgical system with real-time soft tissue deformation computing for robotic cervical pedicle screw placement. <br><span class="venue-sub">Oral presentation at SJTU Graduate Academic Forum, Online.</span>, 2021</li>
-                <li>Accurate and robust non-rigid shape correction of deformed hepatic vascular trees using sparse intraoperative ultrasound images. <br><span class="venue-sub">Oral presentation at SJTU Graduate Academic Forum, Online.</span>, 2022</li>
             </ul>
         </section>
 
@@ -431,8 +454,8 @@
             <h4>Funding</h4>
             <ul class="custom-list">
                 <li><strong>National Natural Science Foundation of China PhD Student Project (one of 400 nationwide)</strong>, 823B2045, PI. </li>
-                <li><strong>Chinese Association for Science and Technology (CAST) Young Talent Support Program PhD Project.</strong>, PI. </li>
-                <li><strong>China Postdoctoral Science Foundation.</strong>, 2025M772924, PI. </li>
+                <li><strong>Chinese Association for Science and Technology (CAST) Young Talent Support Program PhD Project</strong>, PI. </li>
+                <li><strong>China Postdoctoral Science Foundation</strong>, 2025M772924, PI. </li>
                 <li><strong>National Natural Science Foundation of China (NSFC) Key Project</strong>, 82330063, Key Investigator. </li>
                 <li><strong>National Key R&D Program of China</strong>, 2022YFE0197900, Key Investigator. </li>
                 <li><strong>NSFC Sino-German International Cooperation Project</strong>, M-0019, Key Investigator. </li>
@@ -445,8 +468,8 @@
             <ul class="custom-list">
                 <li><strong>Program committee member</strong> of MICCAI 2023 Seg. A. Challenge.</li>
                 <li><strong>Program committee member</strong> of International Conference on Mechanical Automation and Engineering Materials 2024.</li>
-                <li><strong>Regular reviewer</strong> of IEEE JBHI, IEEE T-MRB, Physical and Engineering Sciences in Medicine, Medical Engineering and Physics, MICCAI, etc.</li>
-                <li><strong>Member</strong> of CSIG-S3DI community.</li>
+                <li><strong>Regular reviewer</strong> of IEEE JBHI, IEEE T-MRB, IEEE CGA, Physical and Engineering Sciences in Medicine, Medical Engineering and Physics, MICCAI, etc.</li>
+                <li><strong>Committee Member</strong> of CSIG-S3DI.</li>
             </ul>
         </section>
 
@@ -455,11 +478,12 @@
             <ul class="custom-list">
                 <li>2024 <strong>Academic Raising Star of Shanghai Jiao Tong University</strong> (10 recipients annually).</li>
                 <li>2024 <strong>National Scholarship for Doctoral Students</strong>.</li>
-                <li>2024 <strong>MICCAI PhD Thesis Madness Finalist</strong>.</li>
-                <li>2024 <strong>Young Best Paper Presentation</strong>, China Biomedical Engineering Conference.</li>
-                <li>2022 <strong>Young Best Paper Presentation</strong>, China Biomedical Engineering Conference.</li>
+                <li>2025 <strong>Outstanding Graduate of Shanghai Municipality</strong>.</li>
+                <li>2021 <strong>Top Cited Article</strong> in Expert Review of Medical Devices (2nd highest citations).</li>
+                <li>2025 <strong>Gold Award (Shanghai) and National Excellence Award</strong>, Postdoctoral Innovation Competition.</li>
                 <li>2021 <strong>Grand Prize</strong>, The "Challenge Cup" Competition of Shanghai.</li>
                 <li>2024 <strong>First Prize</strong>, 9th National Biomedical Engineering Innovation Design Competition.</li>
+                <li>2025 <strong>Award Winner</strong>, Retinal Segmentation Challenge (ISICDM Conference).</li>
                 <li>2023 <strong>SJTU Overseas Study Grants for Elite PhD Students</strong>.</li>
                 <li>2023 <strong>First Prize</strong>, Changjiang Siyuan Science and Technology Innovation Scholarship.</li>
                 <li>2021 <strong>Shao Xiu Medical+X Innovation Scholarship</strong>.</li>

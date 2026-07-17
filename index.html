@@ -10,75 +10,92 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #fdfdfd;
-            --main-text: #4a4a4a;
+            --bg-color: #fbfcfd;
+            --main-text: #4a5568;
+            --heading-text: #2d3748;
+            --muted-text: #8a94a6;
             --accent-color: #5a8ea2;
-            --tag-bg: #e9f1f3;
-            --tag-text: #5a8ea2;
-            --year-bg: #f5f5f5;
+            --accent-deep: #41708a;
+            --accent-soft: #eef4f6;
+            --accent-border: #d8e6ea;
+            --tag-bg: linear-gradient(135deg, #eaf3f5 0%, #ddebee 100%);
+            --tag-text: #41708a;
+            --year-bg: #f4f6f8;
         }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Quicksand', 'Noto Sans SC', sans-serif; background-color: var(--bg-color); color: var(--main-text); line-height: 1.6; position: relative; }
-        .container { max-width: 1200px; padding: 3rem 15px; }
-        
-        /* 侧边栏样式 */
-        .sidebar { position: sticky; top: 5rem; height: fit-content; padding-left: 1.5rem; border-left: 1.5px solid #eee; margin-top: 2rem; }
-        .sidebar a { display: block; color: #999; font-size: 0.85rem; font-weight: 700; padding: 0.5rem 0; text-decoration: none !important; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
-        .sidebar a:hover { color: var(--accent-color); padding-left: 5px; }
-        .sidebar a.active { color: var(--accent-color); border-left: 3px solid var(--accent-color); margin-left: -1.6rem; padding-left: 1.5rem; }
+        body { font-family: 'Quicksand', 'Noto Sans SC', sans-serif; background-color: var(--bg-color); color: var(--main-text); line-height: 1.7; position: relative; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1120px; padding: 3.5rem 20px 2rem; }
+
+        ::selection { background: var(--accent-soft); color: var(--accent-deep); }
+
+        /* 页面淡入 */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        section { animation: fadeUp 0.7s ease both; }
+        section:nth-of-type(2) { animation-delay: 0.08s; }
+        section:nth-of-type(3) { animation-delay: 0.14s; }
+
+        /* 侧边栏样式*/
+        .sidebar { position: sticky; top: 5rem; height: fit-content; padding-left: 1.5rem; border-left: 1.5px solid #edf0f2; margin-top: 2rem; }
+        .sidebar a { display: block; color: #a0aab8; font-size: 0.8rem; font-weight: 700; padding: 0.45rem 0; text-decoration: none !important; transition: all 0.25s ease; text-transform: uppercase; letter-spacing: 1.5px; }
+        .sidebar a:hover { color: var(--accent-color); padding-left: 6px; }
+        .sidebar a.active { color: var(--accent-deep); border-left: 3px solid var(--accent-color); margin-left: -1.55rem; padding-left: 1.5rem; }
         @media (max-width: 1199px) { .sidebar-column { display: none; } }
 
         /* 主要内容 */
-        section { scroll-margin-top: 6rem; margin-bottom: 3rem; }
-        .profile-pic { width: 140px; border-radius: 50%; border: 4px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .display-4 { font-weight: 700; color: #222; font-size: 2.6rem; }
-        .social-links a { margin-right: 18px; color: #888; font-weight: 600; transition: 0.3s; }
-        .social-links a:hover { color: var(--accent-color); text-decoration: none; }
-        h4 { font-weight: 700; color: #333; margin-top: 0; margin-bottom: 2rem; border-left: 4px solid var(--accent-color); padding-left: 15px; }
-        
+        section { scroll-margin-top: 6rem; margin-bottom: 3.5rem; }
+        .profile-pic { width: 160px; border-radius: 50%; border: 5px solid #fff; box-shadow: 0 8px 28px rgba(90,142,162,0.18), 0 0 0 1.5px var(--accent-border); transition: transform 0.4s ease; }
+        .profile-pic:hover { transform: scale(1.04) rotate(1.5deg); }
+        .display-4 { font-weight: 600; color: var(--heading-text); font-size: 2.5rem; letter-spacing: -0.5px; }
+        .display-4 strong { font-weight: 700; color: var(--accent-deep); }
+        .bio-text a { color: var(--accent-color); font-weight: 600; text-decoration: none; border-bottom: 1px solid transparent; transition: 0.25s; }
+        .bio-text a:hover { color: var(--accent-deep); border-bottom-color: var(--accent-border); }
+
+        .social-links { display: flex; flex-wrap: wrap; gap: 10px; }
+        .social-links a { color: var(--accent-deep); font-weight: 600; font-size: 0.88rem; background: var(--accent-soft); border: 1px solid var(--accent-border); padding: 6px 16px; border-radius: 20px; transition: all 0.25s ease; text-decoration: none !important; }
+        .social-links a:hover { background: var(--accent-color); border-color: var(--accent-color); color: #fff; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(90,142,162,0.28); }
+        .social-links a i { margin-right: 5px; }
+
+        h4 { font-weight: 700; color: var(--heading-text); margin-top: 0; margin-bottom: 2rem; font-size: 1.35rem; letter-spacing: 0.3px; position: relative; padding-bottom: 0.6rem; }
+        h4::after { content: ""; position: absolute; left: 0; bottom: 0; width: 44px; height: 3.5px; border-radius: 3px; background: linear-gradient(90deg, var(--accent-color), var(--accent-border)); }
+
         .pub-list-simple { list-style: none; padding-left: 0; }
-        .pub-item-simple { display: flex; align-items: flex-start; margin-bottom: 1.5rem; }
-        .tag-container { flex: 0 0 160px; margin-right: 20px; }
+        .pub-item-simple { display: flex; align-items: flex-start; margin-bottom: 0; padding: 0.9rem 0.8rem; border-radius: 12px; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+        .pub-item-simple:hover { background: #fff; box-shadow: 0 4px 18px rgba(90,142,162,0.10); transform: translateX(4px); }
+        .tag-container { flex: 0 0 160px; margin-right: 20px; padding-top: 2px; }
         .tag-group { display: flex; width: 100%; height: 26px; align-items: center; }
-        .venue-tag { background: var(--tag-bg); color: var(--tag-text); padding: 0 10px; border-radius: 6px 0 0 6px; font-size: 0.75rem; font-weight: 700; flex: 1; height: 100%; display: flex; align-items: center; justify-content: center; text-align: center; border: 1px solid #d1e2e5; border-right: none; white-space: nowrap; }
+        .venue-tag { background: var(--tag-bg); color: var(--tag-text); padding: 0 10px; border-radius: 7px 0 0 7px; font-size: 0.73rem; font-weight: 700; flex: 1; height: 100%; display: flex; align-items: center; justify-content: center; text-align: center; border: 1px solid var(--accent-border); border-right: none; white-space: nowrap; letter-spacing: 0.2px; }
         .venue-tag.small-font { font-size: 0.65rem; }
-        .year-tag { background: var(--year-bg); color: #777; padding: 0 10px; border-radius: 0 6px 6px 0; font-size: 0.75rem; font-weight: 600; height: 100%; display: flex; align-items: center; border: 1px solid #eee; }
+        .year-tag { background: var(--year-bg); color: #7d8794; padding: 0 10px; border-radius: 0 7px 7px 0; font-size: 0.73rem; font-weight: 700; height: 100%; display: flex; align-items: center; border: 1px solid #e8ecf0; }
         .pub-content { flex: 1; }
-        .pub-title-simple { font-weight: 600; color: #222; font-size: 1.05rem; line-height: 1.3; }
-        .authors-simple { color: #666; font-size: 0.9rem; margin-top: 2px; }
+        .pub-title-simple { font-weight: 700; color: var(--heading-text); font-size: 1.02rem; line-height: 1.4; }
+        .authors-simple { color: #78828f; font-size: 0.88rem; margin-top: 3px; }
+        .authors-simple strong { color: var(--accent-deep) !important; }
 
         /* 列表修饰 */
         .custom-list { padding-left: 0; list-style: none; }
-        .custom-list li { position: relative; padding-left: 20px; margin-bottom: 1rem; border-bottom: 1px dashed #eee; padding-bottom: 10px; }
-        .custom-list li::before { content: "•"; color: var(--accent-color); position: absolute; left: 0; font-weight: 800; }
-        .venue-sub { font-style: normal; color: #5a8ea2; font-weight: 600; }
+        .custom-list li { position: relative; padding-left: 22px; margin-bottom: 1rem; border-bottom: 1px solid #f0f3f5; padding-bottom: 12px; transition: padding-left 0.25s ease; }
+        .custom-list li:hover { padding-left: 26px; }
+        .custom-list li::before { content: ""; position: absolute; left: 2px; top: 0.62em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-color); opacity: 0.75; }
+        .custom-list strong { color: var(--heading-text); font-weight: 700; }
+        .venue-sub { font-style: normal; color: var(--accent-color); font-weight: 600; font-size: 0.92rem; }
 
         /* News 专属样式 */
-        .news-item { margin-bottom: 0.8rem; font-size: 0.95rem; }
-        .news-date { 
-            font-weight: 700; 
-            color: var(--accent-color); 
-            margin-right: 10px; 
-            font-family: 'Quicksand';
-            min-width: 85px;
-            display: inline-block;
-        }
-
-        .badge-award-talk { background: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%); color: #fa5252; font-size: 0.72rem; font-weight: 700; padding: 2px 10px; border-radius: 12px; margin-left: 8px; border: 1px solid #ffc9c9; vertical-align: middle; display: inline-block; box-shadow: 0 2px 4px rgba(250, 82, 82, 0.05); letter-spacing: 0.2px; }
-        .badge-award-talk i { margin-right: 4px; font-size: 0.8rem; color: #fa5252; }
-        
-        .visitor-stats { max-width: 700px; margin: 2rem auto; padding: 10px; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-
-        /* News 专属样式优化 */
         .news-list {
-            padding-left: 5px;
+            background: #fff;
+            border: 1px solid #eef2f4;
+            border-radius: 16px;
+            padding: 1.4rem 1.6rem;
+            box-shadow: 0 4px 20px rgba(90,142,162,0.06);
         }
-        .news-item { 
-            margin-bottom: 0.8rem; 
-            font-size: 0.95rem; 
-            display: flex; 
-            align-items: flex-start; 
+        .news-item {
+            margin-bottom: 0.9rem;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            padding-bottom: 0.9rem;
+            border-bottom: 1px dashed #eef2f4;
         }
+        .news-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
         .news-icon {
             color: var(--accent-color);
             margin-right: 12px;
@@ -86,25 +103,78 @@
             text-align: center;
             flex-shrink: 0;
             padding-top: 4px;
+            opacity: 0.85;
         }
-        .news-date { 
-            font-weight: 700; 
-            color: #666; 
-            margin-right: 10px; 
+        .news-date {
+            font-weight: 700;
+            color: var(--accent-deep);
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-border);
+            border-radius: 6px;
+            text-align: center;
+            padding: 0 6px;
+            margin-right: 12px;
             font-family: 'Quicksand';
-            min-width: 50px;
+            font-size: 0.82rem;
+            min-width: 52px;
             display: inline-block;
+            flex-shrink: 0;
         }
+        .news-item strong { color: var(--heading-text); }
 
-        /* 新增：论文标题超链接样式 */
+        .badge-award-talk { background: linear-gradient(135deg, #eef6f8 0%, #dcebef 100%); color: var(--accent-deep); font-size: 0.72rem; font-weight: 700; padding: 2px 10px; border-radius: 12px; margin-left: 8px; border: 1px solid var(--accent-border); vertical-align: middle; display: inline-block; box-shadow: 0 2px 6px rgba(90, 142, 162, 0.10); letter-spacing: 0.2px; }
+        .badge-award-talk i { margin-right: 4px; font-size: 0.8rem; color: var(--accent-color); }
+
+        .visitor-stats { max-width: 700px; margin: 2rem auto; padding: 12px; background: #fff; border: 1px solid #eef2f4; border-radius: 14px; box-shadow: 0 4px 20px rgba(90,142,162,0.06); overflow: hidden; }
+        .visitor-stats img, .visitor-stats canvas, #mapmyvisitors-widget { max-width: 100% !important; }
+
+        /* 论文标题超链接样式*/
         .title-link {
-            color: inherit; 
-            text-decoration: none; 
-            transition: color 0.3s ease;
+            color: inherit;
+            text-decoration: none;
+            background-image: linear-gradient(var(--accent-color), var(--accent-color));
+            background-size: 0% 1.5px;
+            background-repeat: no-repeat;
+            background-position: left bottom;
+            transition: color 0.3s ease, background-size 0.35s ease;
         }
         .title-link:hover {
-            color: var(--accent-color);
-            text-decoration: underline;
+            color: var(--accent-deep);
+            background-size: 100% 1.5px;
+        }
+
+        footer { color: #a0aab8 !important; letter-spacing: 0.5px; }
+
+        /* Email 防爬虫弹窗 */
+        .email-modal { border: none; border-radius: 18px; box-shadow: 0 12px 48px rgba(45,55,72,0.18); }
+        .email-modal .modal-body { padding: 2.2rem 1.6rem 1.8rem; position: relative; }
+        .email-close { position: absolute; top: 10px; right: 16px; color: #a0aab8; font-weight: 400; opacity: 1; transition: 0.25s; }
+        .email-close:hover { color: var(--accent-deep); opacity: 1; }
+        .email-modal-title { color: var(--accent-deep); font-weight: 700; font-size: 0.95rem; margin-bottom: 1.1rem; }
+        .email-modal-title i { margin-right: 6px; }
+        .email-img-wrap { background: var(--accent-soft); border: 1px solid var(--accent-border); border-radius: 12px; padding: 14px 10px; }
+        .email-img-wrap img { max-width: 100%; height: auto; }
+        .email-modal-hint { color: #a0aab8; font-size: 0.78rem; margin-top: 1rem; margin-bottom: 0; line-height: 1.5; }
+
+        /* 展开全部按钮：细线 + 文字 */
+        .pub-more-wrap { display: flex; align-items: center; gap: 18px; margin-top: 1.8rem; }
+        .pub-more-wrap::before, .pub-more-wrap::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--accent-border)); }
+        .pub-more-wrap::after { background: linear-gradient(90deg, var(--accent-border), transparent); }
+        .pub-toggle { display: inline-flex; align-items: center; gap: 7px; color: var(--accent-color); background: none; border: none; font-weight: 700; font-size: 0.86rem; letter-spacing: 0.8px; padding: 4px 6px; text-decoration: none !important; transition: color 0.25s ease; cursor: pointer; white-space: nowrap; }
+        .pub-toggle:hover { color: var(--accent-deep); }
+        .pub-toggle i { font-size: 0.75rem; transition: transform 0.3s ease; }
+        .pub-toggle:hover .when-collapsed i { transform: translateY(2.5px); }
+        .pub-toggle:hover .when-expanded i { transform: translateY(-2.5px); }
+        .pub-toggle .when-collapsed, .pub-toggle .when-expanded { display: inline-flex; align-items: center; gap: 7px; }
+        .pub-toggle .when-expanded { display: none; }
+        .pub-toggle:not(.collapsed) .when-expanded { display: inline-flex; }
+        .pub-toggle:not(.collapsed) .when-collapsed { display: none; }
+
+        @media (max-width: 767px) {
+            .display-4 { font-size: 2rem; }
+            .pub-item-simple { flex-direction: column; }
+            .tag-container { margin-bottom: 6px; flex: none; width: 170px; }
+            .profile-pic { width: 130px; margin-bottom: 1.5rem; }
         }
     </style>
 </head>
@@ -117,16 +187,16 @@
                         <h1 class="display-4"><strong>Puxun</strong> Tu (涂朴勋)</h1>
                         <div class="bio-text mt-4">
         <p>
-            I am currently a postdoctoral researcher at the Surgical Planning Laboratory at Harvard Medical School, working under the advisement of <a href="https://scholar.google.com/citations?user=n01L0mEAAAAJ&hl=en&oi=ao" target="_blank">Prof. Ron Kikinis</a> since March 2026.
-            I also worked as a postdoctoral researcher at the Institute of Biomedical Manufacturing and Life Quality Engineering, 
-            School of Mechanical Engineering, at Shanghai Jiao Tong University, China, where I earned my Ph.D. 
-            in March 2025 under the supervision of <a href="https://me.sjtu.edu.cn/en/FullTimeTeacher/chenxiaojun.html" target="_blank">Prof. Xiaojun Chen</a>. 
-            In 2023, I worked as a visiting Ph.D. student at the Pattern Recognition and Image Analysis (PRIA) Lab at the University of M&uumlnster in Germany, led by <a href="https://scholar.google.com/citations?user=_td9cSEAAAAJ&hl=en" target="_blank">Prof. Xiaoyi Jiang</a>. 
+            I am currently a postdoctoral researcher at the Surgical Planning Laboratory at Harvard Medical School, mentored by <a href="https://scholar.google.com/citations?user=n01L0mEAAAAJ&hl=en&oi=ao" target="_blank">Prof. Ron Kikinis</a> since March 2026.
+            Previously, I was a postdoctoral researcher at the Institute of Biomedical Manufacturing and Life Quality Engineering, 
+            School of Mechanical Engineering, Shanghai Jiao Tong University, China, where I earned my Ph.D. 
+            in March 2025 under the mentorship of <a href="https://me.sjtu.edu.cn/en/FullTimeTeacher/chenxiaojun.html" target="_blank">Prof. Xiaojun Chen</a>. I began my academic journey there in 2019 as a direct-track Master's-to-Ph.D. student. 
+            In 2023, I worked as a visiting Ph.D. student at the Pattern Recognition and Image Analysis (PRIA) Lab at the University of Münster, Germany, hosted by <a href="https://scholar.google.com/citations?user=_td9cSEAAAAJ&hl=en" target="_blank">Prof. Xiaoyi Jiang</a>. 
             My research focuses on AI-based surgical scene understanding, navigation, and robotics.
         </p>
 
         <div class="social-links mt-3">
-            <a href="mailto:puxuntu@sjtu.edu.cn"><i class="far fa-envelope"></i> Email</a>
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#emailModal"><i class="far fa-envelope"></i> Email</a>
             <a href="https://scholar.google.com/citations?user=eluE08oAAAAJ&hl=en" target="_blank"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a>
             <a href="https://github.com/puxuntu" target="_blank"><i class="fab fa-github"></i> Github</a>
         </div>
@@ -176,11 +246,6 @@
                             <span>Published papers in <strong>CMPB</strong>, and <strong>CIBM</strong>.</span>
                         </div>
 
-                        <div class="news-item">
-                            <span class="news-icon"><i class="fa-solid fa-rocket"></i></span>
-                            <span class="news-date">2019</span> 
-                            <span>Started a <strong>direct-track Master's-to-Ph.D</strong>. program at Shanghai Jiao Tong University.</span>
-                        </div>
                     </div>
                 </section>
 
@@ -213,6 +278,48 @@
             </div>
         </li>
         
+        <li class="pub-item-simple">
+            <div class="tag-container">
+                <div class="tag-group">
+                    <span class="venue-tag small-font">Information Fusion</span>
+                    <span class="year-tag">2025</span>
+                </div>
+            </div>
+            <div class="pub-content">
+                <div class="pub-title-simple"><a href="https://doi.org/10.1016/j.inffus.2024.102604" target="_blank" class="title-link">Phase-specific augmented reality guidance for microscopic cataract surgery using spatiotemporal fusion network</a></div>
+                <div class="authors-simple"><strong style="color: #007bff;">Puxun Tu</strong>, Hongfei Ye, Haochen Shi, Jeff Young, Meng Xie, Peiquan Zhao, Ce Zheng, Xiaoyi Jiang, Xiaojun Chen</div>
+            </div>
+        </li>
+        
+        <li class="pub-item-simple">
+            <div class="tag-container">
+                <div class="tag-group">
+                    <span class="venue-tag ">IEEE TBME</span>
+                    <span class="year-tag">2024</span>
+                </div>
+            </div>
+            <div class="pub-content">
+                <div class="pub-title-simple"><a href="https://ieeexplore.ieee.org/abstract/document/10508995" target="_blank" class="title-link">From Coarse to Fine: Non-Rigid Sparse-Dense Registration for Deformation-Aware Liver Surgical Navigation</a></div>
+                <div class="authors-simple"><strong style="color: #007bff;">Puxun Tu</strong>, Pingping Hu, Junfeng Wang, Xiaojun Chen</div>
+            </div>
+        </li>
+        
+        <li class="pub-item-simple">
+            <div class="tag-container">
+                <div class="tag-group">
+                    <span class="venue-tag ">IEEE TBME</span>
+                    <span class="year-tag">2022</span>
+                </div>
+            </div>
+            <div class="pub-content">
+                <div class="pub-title-simple"><a href="https://doi.org/10.1109/TBME.2022.3152504" target="_blank" class="title-link">Ultrasound image guided and mixed reality-based surgical system with real-time soft tissue deformation computing for robotic cervical pedicle screw placement</a></div>
+                <div class="authors-simple"><strong style="color: #007bff;">Puxun Tu</strong>, Chunxia Qin, Yan Guo, Dongyuan Li, Abel J Lungu, Huixiang Wang, Xiaojun Chen</div>
+            </div>
+        </li>
+        </ul>
+
+                <div class="collapse" id="all-publications">
+                    <ul class="pub-list-simple">
         <li class="pub-item-simple">
             <div class="tag-container">
                 <div class="tag-group">
@@ -255,19 +362,6 @@
         <li class="pub-item-simple">
             <div class="tag-container">
                 <div class="tag-group">
-                    <span class="venue-tag small-font">Information Fusion</span>
-                    <span class="year-tag">2025</span>
-                </div>
-            </div>
-            <div class="pub-content">
-                <div class="pub-title-simple"><a href="https://doi.org/10.1016/j.inffus.2024.102604" target="_blank" class="title-link">Phase-specific augmented reality guidance for microscopic cataract surgery using spatiotemporal fusion network</a></div>
-                <div class="authors-simple"><strong style="color: #007bff;">Puxun Tu</strong>, Hongfei Ye, Haochen Shi, Jeff Young, Meng Xie, Peiquan Zhao, Ce Zheng, Xiaoyi Jiang, Xiaojun Chen</div>
-            </div>
-        </li>
-        
-        <li class="pub-item-simple">
-            <div class="tag-container">
-                <div class="tag-group">
                     <span class="venue-tag ">MedIA</span>
                     <span class="year-tag">2025</span>
                 </div>
@@ -301,19 +395,6 @@
             <div class="pub-content">
                 <div class="pub-title-simple"><a href="https://doi.org/10.3390/electronics14122486" target="_blank" class="title-link">Development and Evaluation of a Novel Mixed Reality-Based Surgical Navigation System for Distal Locking of Intramedullary Nails</a></div>
                 <div class="authors-simple">Fei Lyu, <strong style="color: #007bff;">Puxun Tu</strong>, Xingguang Tao, Huixiang Wang</div>
-            </div>
-        </li>
-        
-        <li class="pub-item-simple">
-            <div class="tag-container">
-                <div class="tag-group">
-                    <span class="venue-tag ">IEEE TBME</span>
-                    <span class="year-tag">2024</span>
-                </div>
-            </div>
-            <div class="pub-content">
-                <div class="pub-title-simple"><a href="https://ieeexplore.ieee.org/abstract/document/10508995" target="_blank" class="title-link">From Coarse to Fine: Non-Rigid Sparse-Dense Registration for Deformation-Aware Liver Surgical Navigation</a></div>
-                <div class="authors-simple"><strong style="color: #007bff;">Puxun Tu</strong>, Pingping Hu, Junfeng Wang, Xiaojun Chen</div>
             </div>
         </li>
         
@@ -450,19 +531,6 @@
         <li class="pub-item-simple">
             <div class="tag-container">
                 <div class="tag-group">
-                    <span class="venue-tag ">IEEE TBME</span>
-                    <span class="year-tag">2022</span>
-                </div>
-            </div>
-            <div class="pub-content">
-                <div class="pub-title-simple"><a href="https://doi.org/10.1109/TBME.2022.3152504" target="_blank" class="title-link">Ultrasound image guided and mixed reality-based surgical system with real-time soft tissue deformation computing for robotic cervical pedicle screw placement</a></div>
-                <div class="authors-simple"><strong style="color: #007bff;">Puxun Tu</strong>, Chunxia Qin, Yan Guo, Dongyuan Li, Abel J Lungu, Huixiang Wang, Xiaojun Chen</div>
-            </div>
-        </li>
-        
-        <li class="pub-item-simple">
-            <div class="tag-container">
-                <div class="tag-group">
                     <span class="venue-tag ">Med Phy</span>
                     <span class="year-tag">2022</span>
                 </div>
@@ -551,6 +619,14 @@
             </div>
         </li>
         </ul>
+                </div>
+
+                <div class="pub-more-wrap text-center">
+                    <a class="pub-toggle collapsed" data-toggle="collapse" href="#all-publications" role="button" aria-expanded="false" aria-controls="all-publications">
+                        <span class="when-collapsed"><i class="fa-solid fa-chevron-down"></i> Show All Publications (23 more)</span>
+                        <span class="when-expanded"><i class="fa-solid fa-chevron-up"></i> Show Less</span>
+                    </a>
+                </div>
                 </section>
 
                 <section id="talks">
@@ -560,7 +636,11 @@
                         <li>AR-Assisted Surgical Navigation for Soft and Microscopic Surgeries. <br><span class="venue-sub">Invited talk at iMVR Lab @ NUS by Prof. Yueming Jin, online.</span>, 2025</li>
                         <li>Development of an AR and AI-Powered Surgical Microscope for Ophthalmic Surgical Navigation. <br><span class="venue-sub">Oral presentation at CARS 2025, Berlin, Germany.</span>, 2025</li>
                         <li>AR-Assisted Surgical Navigation for Soft and Microscopic Surgeries. <br><span class="venue-sub">Invited talk at CSIG-S3DI by Prof. Tianqi Huang, Suzhou, China,</span>, 2025</li>
-                        <li>AR-Based Surgical Navigation for Microscopic Cataract Surgery. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Paper Incentive Program Award (1 of 3)</span> <br><span class="venue-sub">Oral presentation at CCF-Digital Medicine Conference, Beijing, China.</span>, 2025</li>   
+                        <li>AR-Based Surgical Navigation for Microscopic Cataract Surgery. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Paper Incentive Program Award (1 of 3)</span> <br><span class="venue-sub">Oral presentation at CCF-Digital Medicine Conference, Beijing, China.</span>, 2025</li>
+                    </ul>
+
+                <div class="collapse" id="all-talks">
+                    <ul class="custom-list">
                         <li>Intraoperative Soft Tissue Deformation Perception-Guided Mixed Reality Surgical Navigation and Robotic System for Head and Neck Surgery. <br><span class="venue-sub">Invited talk at CMA-Digital Medicine Conference by Prof. Xiangdong Qi, Shanghai, China.</span>, 2025</li>
                         <li>Augmented Reality Surgical Navigation for Soft Tissue and Microsurgical Procedures. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Award Finalist (1 of 8)</span> <br><span class="venue-sub">Oral presentation at MICCAI MSB PhD Thesis Madness, Marrakech, Morocco.</span>, 2024</li>
                         <li>AI and AR in Medical Image Processing, Surgical Navigation, and Robotics: A Focus on Medical Shape Analysis. <br><span class="venue-sub">Invited talk at MICCAI MedShapeNet tutorial by Gijs Luijten, Marrakech, Morocco.</span>, 2024</li>
@@ -579,6 +659,14 @@
                         <li>Accurate and robust non-rigid shape correction of deformed hepatic vascular trees using sparse intraoperative ultrasound images. <span class="badge-award-talk"><i class="fas fa-trophy"></i> Second Prize</span> <br><span class="venue-sub">Oral presentation at SJTU Graduate Academic Forum, Shanghai, China.</span>, 2022</li>
                         <li>Ultrasound image guided and mixed reality based surgical system with real-time soft tissue deformation computing for robotic cervical pedicle screw placement. <br><span class="venue-sub">Oral presentation at SJTU Graduate Academic Forum, Online.</span>, 2021</li>
                     </ul>
+                </div>
+
+                <div class="pub-more-wrap text-center">
+                    <a class="pub-toggle collapsed" data-toggle="collapse" href="#all-talks" role="button" aria-expanded="false" aria-controls="all-talks">
+                        <span class="when-collapsed"><i class="fa-solid fa-chevron-down"></i> Show All Talks (17 more)</span>
+                        <span class="when-expanded"><i class="fa-solid fa-chevron-up"></i> Show Less</span>
+                    </a>
+                </div>
                 </section>
 
                 <section id="funding">
@@ -596,10 +684,10 @@
                 <section id="services">
                     <h4>Academic Services & Activities</h4>
                     <ul class="custom-list">
+                        <li><strong>Reviewer</strong> for 10+ journals and conferences, including npj Digital Medicine, IEEE JBHI, IEEE T-MRB, IEEE CGA, MICCAI, etc.</li>
                         <li><strong>Program committee member</strong> of MICCAI 2023 Seg. A. Challenge.</li>
                         <li><strong>Program committee member</strong> of International Conference on Mechanical Automation and Engineering Materials 2024.</li>
-                        <li><strong>Regular reviewer</strong> of IEEE JBHI, IEEE T-MRB, IEEE CGA, Physical and Engineering Sciences in Medicine, Medical Engineering and Physics, MICCAI, etc.</li>
-                        <li><strong>Committee Member</strong> of CSIG-S3DI.</li>
+                        <li><strong>Committee Member</strong> of CSIG-S3DI, MICS.</li>
                     </ul>
                 </section>
 
@@ -611,6 +699,10 @@
                         <li>2026 <strong>Top 10 Vertical Domain Large Foundation Model Award, Shanghai Jiao Tong University</strong>.</li>
                         <li>2025 <strong>Outstanding Graduate of Shanghai Municipality</strong>.</li>
                         <li>2021 <strong>Top Cited Article</strong> in Expert Review of Medical Devices (2nd highest citations).</li>
+                    </ul>
+
+                <div class="collapse" id="all-awards">
+                    <ul class="custom-list">
                         <li>2025 <strong>Gold Award (Shanghai) and National Excellence Award</strong>, Postdoctoral Innovation Competition.</li>
                         <li>2021 <strong>Grand Prize</strong>, The "Challenge Cup" Competition of Shanghai.</li>
                         <li>2024 <strong>First Prize</strong>, 9th National Biomedical Engineering Innovation Design Competition.</li>
@@ -622,13 +714,23 @@
                         <li>2022 <strong>First Prize</strong>, LEGEND Medical Scholarship.</li>
                         <li>2017 <strong>First Prize (Top 1%)</strong>, Contemporary Undergraduate Mathematical Contest in Modeling.</li>
                     </ul>
+                </div>
+
+                <div class="pub-more-wrap text-center">
+                    <a class="pub-toggle collapsed" data-toggle="collapse" href="#all-awards" role="button" aria-expanded="false" aria-controls="all-awards">
+                        <span class="when-collapsed"><i class="fa-solid fa-chevron-down"></i> Show All Awards (10 more)</span>
+                        <span class="when-expanded"><i class="fa-solid fa-chevron-up"></i> Show Less</span>
+                    </a>
+                </div>
                 </section>
 
+                <!-- 访客地图已隐藏，需要时取消注释即可恢复
                 <section id="visitors" class="text-center">
                     <div class="visitor-stats">
-                        <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=s-Iw4ZFpHnWAY4ThGiKzyHBpzcIaFyQpd--7_cKgzzY"></script>
+                        <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=MEe76q5yY_sTI45aYe8VmGUu12KO1Ye1UZMUVlcPXoY&cl=ffffff&w=a"></script>
                     </div>
                 </section>
+                -->
 
                 <footer class="mt-5 py-5 border-top text-center text-muted small">Last update: Jan. 2026.</footer>
             </div>
@@ -642,8 +744,23 @@
                     <a class="nav-link" href="#funding">Funding</a>
                     <a class="nav-link" href="#services">Services</a>
                     <a class="nav-link" href="#awards">Awards</a>
-                    <a class="nav-link" href="#visitors">Visitors</a>
                 </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email 防爬虫弹窗 -->
+    <div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content email-modal">
+                <div class="modal-body text-center">
+                    <button type="button" class="close email-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <p class="email-modal-title"><i class="far fa-envelope"></i> Feel free to reach me at</p>
+                    <div class="email-img-wrap">
+                        <img src="assets/img/email.png" alt="Email address (image)">
+                    </div>
+                    <p class="email-modal-hint">Shown as an image to keep spam bots away.<br>Please replace [at] with @ and [dot] with .</p>
+                </div>
             </div>
         </div>
     </div>
